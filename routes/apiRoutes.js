@@ -14,4 +14,18 @@ router.get("/api/articles", (req, res) => {
     .catch(err => res.status(422).json(err));
 });
 
+router.post("/api/articles", (req, res) => {
+  axios
+    .post({queryURLBase}, { params: req.query })
+    .then(({ data: { results } }) => res.json(results))
+    .catch(err => res.status(422).json(err));
+});
+
+router.delete("/", (req, res) => {
+  axios
+    .post({queryURLBase}, { params: req.query })
+    .then(({ data: { results } }) => res.json(results))
+    .catch(err => res.status(422).json(err));
+});
+
 module.exports = router;

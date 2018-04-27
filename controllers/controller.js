@@ -1,7 +1,7 @@
-const db = require("../models");
+const Article = require("../models/index.js");
 
 
-module.exports = {
+module.exports = function(app) {
   findAll: function(req, res) {
     db.Article
       .find(req.query)
