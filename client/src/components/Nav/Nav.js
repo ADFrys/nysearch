@@ -1,10 +1,12 @@
 import React from "react";
 import "./nav.css";
+import AppBar from 'material-ui/AppBar';
 
-const Nav = () => (
-<nav className="navbar fixed-top navbar-light bg-light">
-  <a className="navbar-brand" href="#">NY Search</a>
-</nav>
+const AppBarExampleIcon = () => (
+  <AppBar
+    title="Title"
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+  />
 );
 
-export default Nav;
+export default AppBarExampleIcon;
