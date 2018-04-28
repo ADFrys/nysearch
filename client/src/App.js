@@ -4,6 +4,9 @@ import Search from "./components/Search";
 import Results from "./components/Results";
 import API from "./utils/API";
 import Articles from "./components/Articles";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import AppBar from 'material-ui/AppBar';
+
 
 class App extends Component {
   state = {
@@ -44,6 +47,8 @@ class App extends Component {
   render() {
     return (
       <div>
+       <MuiThemeProvider>
+
         <Nav />
         <Search value={this.state.search}
         handleInputChange={this.handleInputChange}
@@ -52,6 +57,7 @@ class App extends Component {
         <Results 
         article={this.state.articles}/>
         <Articles />
+         </MuiThemeProvider>
       </div>
     );
 }
