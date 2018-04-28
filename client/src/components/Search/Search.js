@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = () => (
+const Search = props => (
   <div>
 
     <div className="container">
@@ -30,7 +30,7 @@ const Search = () => (
            </div>
            <div className="form-group">
               <label for="end-year">End Year (Optional):</label>
-              <input type="text" className="form-control" id="end-year"/>
+              <input onClick={() => props.handleFormSubmit(props)} type="text" className="form-control" id="end-year"/>
             </div>
             <button type="submit" className="btn btn-default" id="run-search"> Search</button>
            </form>

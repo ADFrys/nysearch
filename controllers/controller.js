@@ -1,7 +1,7 @@
 const Article = require("../models/index.js");
 
 
-module.exports = function(app) {
+module.exports = {
   findAll: function(req, res) {
     db.Article
       .find(req.query)

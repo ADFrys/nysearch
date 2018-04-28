@@ -25,10 +25,6 @@ app.use(express.static("client/build"));
 
 app.use(routes);
 
-require("./controllers/fetch.js")(app);
-
-app.use("/api", apiRoutes);
-
 
 // Start the API server
 app.listen(PORT, function() {

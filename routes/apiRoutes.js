@@ -7,25 +7,25 @@ var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api
   authKey + "&q=";
 
 
-router.get("/api/articles", (req, res) => {
+router.get("/articles", (req, res) => {
   axios
     .get({queryURLBase}, { params: req.query })
-    .then(({ data: { results } }) => res.json(results))
+    .then(({ data: { response } }) => res.json(response.docs))
     .catch(err => res.status(422).json(err));
 });
 
-router.post("/api/articles", (req, res) => {
-  axios
-    .post({queryURLBase}, { params: req.query })
-    .then(({ data: { results } }) => res.json(results))
-    .catch(err => res.status(422).json(err));
-});
+// router.post("/api/articles", (req, res) => {
+//   axios
+//     .post({queryURLBase}, { params: req.query })
+//     .then(({ data: { results } }) => res.json(results))
+//     .catch(err => res.status(422).json(err));
+// });
 
-router.delete("/", (req, res) => {
-  axios
-    .post({queryURLBase}, { params: req.query })
-    .then(({ data: { results } }) => res.json(results))
-    .catch(err => res.status(422).json(err));
-});
+// router.delete("/", (req, res) => {
+//   axios
+//     .post({queryURLBase}, { params: req.query })
+//     .then(({ data: { results } }) => res.json(results))
+//     .catch(err => res.status(422).json(err));
+// });
 
 module.exports = router;

@@ -7,19 +7,23 @@ import Articles from "./components/Articles";
 
 class App extends Component {
   state = {
-    articles: {},
+    articles: [],
     search: ""
   };
 
   searchArticles = query => {
-    API.search(query)
-      .then(res => this.setState({ result: res.data }))
+    API.getArticles(query)
+      .then(res => this.setState({ articles: res.data }))
       .catch(err => console.log(err));
+      console.log(this.state);
   };
 
-  // componentDidMount() {
-  //   this.searcArticles("USA");
-  // }
+
+
+  componentDidMount() {
+
+    this.searchArticles("USA");
+  }
 
 
   handleInputChange = event => {
