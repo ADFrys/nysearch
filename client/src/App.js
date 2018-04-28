@@ -7,14 +7,14 @@ import Articles from "./components/Articles";
 
 class App extends Component {
   state = {
-    articles: [],
+    articles: {},
     search: ""
   };
 
   searchArticles = query => {
     API.getArticles(query)
-      .then(res => this.setState({ articles: res.data }))
-      .catch(err => console.log(err));
+    .then(res => this.setState({ articles: res.data.response }))
+    .catch(err => console.log(err));
       console.log(this.state);
   };
 
@@ -35,7 +35,9 @@ class App extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-  this.searchArticles(this.state.search);
+    API.getArticles(this.state.search)
+      .then(res => this.setState({ articles: res.data }))
+    .catch(err => console.log(err));
   };
 
 
